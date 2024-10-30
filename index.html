@@ -1,65 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            border-bottom: 2px solid #ccc; 
+            padding-bottom: 10px; 
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .column {
+            flex: 1;
+            margin: 0 10px;
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+            padding: 10px; 
+            background-color: #fff; 
+        }
+
+        h2 {
+            color: #555;
+        }
+
+        ol, ul {
+            padding-left: 20px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #777;
+            border-top: 2px solid #ccc; 
+            padding-top: 10px; 
+        }
+    </style>
 </head>
 <body>
 
-    <table border="1" width="100%">
-        <tr>
-            <td colspan="3">
-                <h1>Sanskruti</h1>
-            </td>
-        </tr>
+    <h1>Sanskruti</h1>
+    
+    <div class="container">
+        <div class="column">
+            <h2>Days</h2>
+            <ol>
+                <li>Monday</li>
+                <li>Tuesday</li>
+                <li>Wednesday</li>
+                <li>Thursday</li>
+                <li>Friday</li>
+                <li>Saturday</li>
+                <li>Sunday</li>
+            </ol>
+        </div>
         
-        <tr>
-            <td>
-                <h2>Days</h2>
-                <ol>
-                    <li>Monday</li>
-                    <li>Tuesday</li>
-                    <li>Wednesday</li>
-                    <li>Thursday</li>
-                    <li>Friday</li>
-                    <li>Saturday</li>
-                    <li>Sunday</li>
-                </ol>
-            </td>
-            
-            <td>
-                <h2>Content</h2>
-                
-                    <li>My name is Sanskruti.
-                    I completed my post-graduation degree in Data Science.
-                    My B.Tech is in Computer Science.</li>
-                
-            </td>
-            
-            <td>
-                <h2>Months</h2>
-                <ul>
-                    <li>January</li>
-                    <li>February</li>
-                    <li>March</li>
-                    <li>April</li>
-                    <li>May</li>
-                    <li>June</li>
-                    <li>July</li>
-                    <li>August</li>
-                    <li>September</li>
-                    <li>October</li>
-                    <li>November</li>
-                    <li>December</li>
-                </ul>
-            </td>
-        </tr>
+        <div class="column">
+            <h2>Content</h2>
+            <p>My name is Sanskruti. I completed my post-graduation degree in Data Science. My B.Tech is in Computer Science.</p>
+        </div>
         
-        <tr>
-            <td colspan="3" align="center">
-                <p>&copy; 2024 Sanskruti. All rights reserved.</p>
-            </td>
-        </tr>
-    </table>
+        <div class="column">
+            <h2>Months</h2>
+            <ul>
+                <li>January</li>
+                <li>February</li>
+                <li>March</li>
+                <li>April</li>
+                <li>May</li>
+                <li>June</li>
+                <li>July</li>
+                <li>August</li>
+                <li>September</li>
+                <li>October</li>
+                <li>November</li>
+                <li>December</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Sanskruti. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
