@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +29,8 @@
 
         .container {
             display: flex;
-            justify-content: space-around;
+            flex-direction: column; /* Set the flex direction to column */
+            align-items: center; /* Center align items */
             margin: 20px 0;
             background-color: white;
             padding: 20px;
@@ -37,8 +39,8 @@
         }
 
         .column {
-            flex: 1;
-            margin: 0 10px;
+            width: 100%; /* Make columns full width */
+            margin: 10px 0; /* Space between columns */
             border: 1px solid #ccc; 
             border-radius: 5px; 
             padding: 10px; 
@@ -110,5 +112,3 @@
 
 </body>
 </html>
-
-
