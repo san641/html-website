@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,13 +13,18 @@
             background-color: #f4f4f4;
         }
 
+        .header, .footer {
+            border: 2px solid #ccc; /* Border for header and footer */
+            border-radius: 8px; /* Rounded corners */
+            padding: 10px; /* Padding inside the box */
+            margin-bottom: 20px; /* Space below header and above footer */
+            background-color: white; /* Background color */
+        }
+
         h1 {
             text-align: center;
             color: #333;
-            border-bottom: 2px solid #ccc; 
-            padding-bottom: 10px; 
-            border-top: 2px solid #ccc; /* Added border on top */
-            margin-bottom: 20px; /* Added margin for spacing */
+            margin: 0; /* Reset margin for header */
         }
 
         .container {
@@ -50,19 +56,16 @@
 
         footer {
             text-align: center;
-            margin-top: 20px;
             font-size: 0.9em;
             color: #777;
-            border-top: 2px solid #ccc; /* Added border on top */
-            border-bottom: 2px solid #ccc; /* Added border on bottom */
-            padding-top: 10px; 
-            padding-bottom: 10px; /* Added padding for spacing */
         }
     </style>
 </head>
 <body>
 
-    <h1>Sanskruti</h1>
+    <div class="header">
+        <h1>Sanskruti</h1>
+    </div>
     
     <div class="container">
         <div class="column">
@@ -102,9 +105,9 @@
         </div>
     </div>
 
-    <footer>
+    <div class="footer">
         <p>&copy; 2024 Sanskruti. All rights reserved.</p>
-    </footer>
+    </div>
 
 </body>
 </html>
