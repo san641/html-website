@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,34 +12,42 @@
             background-color: #f4f4f4;
         }
 
-        .header, .footer {
-            border: 20px solid #ccc; /* Border for header and footer */
-            border-radius: 8px; /* Rounded corners */
-            padding: 10px; /* Padding inside the box */
-            margin-bottom: 20px; /* Space below header and above footer */
-            background-color: white; /* Background color */
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-            margin: 0; /* Reset margin for header */
-        }
-
         .container {
             display: flex;
             flex-direction: column; /* Set the flex direction to column */
             align-items: center; /* Center align items */
-            margin: 20px 0;
-            background-color: white;
+            background-color: white; /* Background color for the main box */
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid #ccc; /* Border for the entire container */
+        }
+
+        .header, .footer {
+            width: 100%; /* Make header and footer full width */
+            padding: 10px; /* Padding inside the box */
+            background-color: #f9f9f9; /* Light background for header and footer */
+            margin-bottom: 20px; /* Space below header */
+            border: 1px solid #ccc; /* Border for header and footer */
+            border-radius: 5px; /* Rounded corners */
+            text-align: center; /* Center text in header and footer */
+        }
+
+        h1 {
+            color: #333;
+            margin: 0; /* Reset margin for header */
+        }
+
+        .content-container {
+            display: flex; /* Use flexbox for the inner content */
+            justify-content: space-between; /* Space out the columns */
+            width: 100%; /* Full width */
+            margin: 10px 0; /* Space between content and header/footer */
         }
 
         .column {
-            width: 100%; /* Make columns full width */
-            margin: 10px 0; /* Space between columns */
+            flex: 1; /* Equal flex grow for columns */
+            margin: 0 10px; /* Space between columns */
             border: 1px solid #ccc; 
             border-radius: 5px; 
             padding: 10px; 
@@ -56,7 +63,6 @@
         }
 
         footer {
-            text-align: center;
             font-size: 0.9em;
             color: #777;
         }
@@ -64,50 +70,52 @@
 </head>
 <body>
 
-    <div class="header">
-        <h1>Sanskruti</h1>
-    </div>
-    
     <div class="container">
-        <div class="column">
-            <h2>Days</h2>
-            <ol>
-                <li>Monday</li>
-                <li>Tuesday</li>
-                <li>Wednesday</li>
-                <li>Thursday</li>
-                <li>Friday</li>
-                <li>Saturday</li>
-                <li>Sunday</li>
-            </ol>
+        <div class="header">
+            <h1>Sanskruti</h1>
         </div>
         
-        <div class="column">
-            <h2>Content</h2>
-            <p>My name is Sanskruti. I completed my post-graduation degree in Data Science. My B.Tech is in Computer Science.</p>
+        <div class="content-container">
+            <div class="column">
+                <h2>Days</h2>
+                <ol>
+                    <li>Monday</li>
+                    <li>Tuesday</li>
+                    <li>Wednesday</li>
+                    <li>Thursday</li>
+                    <li>Friday</li>
+                    <li>Saturday</li>
+                    <li>Sunday</li>
+                </ol>
+            </div>
+            
+            <div class="column">
+                <h2>Content</h2>
+                <p>My name is Sanskruti. I completed my post-graduation degree in Data Science. My B.Tech is in Computer Science.</p>
+            </div>
+            
+            <div class="column">
+                <h2>Months</h2>
+                <ul>
+                    <li>January</li>
+                    <li>February</li>
+                    <li>March</li>
+                    <li>April</li>
+                    <li>May</li>
+                    <li>June</li>
+                    <li>July</li>
+                    <li>August</li>
+                    <li>September</li>
+                    <li>October</li>
+                    <li>November</li>
+                    <li>December</li>
+                </ul>
+            </div>
         </div>
-        
-        <div class="column">
-            <h2>Months</h2>
-            <ul>
-                <li>January</li>
-                <li>February</li>
-                <li>March</li>
-                <li>April</li>
-                <li>May</li>
-                <li>June</li>
-                <li>July</li>
-                <li>August</li>
-                <li>September</li>
-                <li>October</li>
-                <li>November</li>
-                <li>December</li>
-            </ul>
-        </div>
-    </div>
 
-    <div class="footer">
-        <p>&copy; 2024 Sanskruti. All rights reserved.</p>
+        <div class="footer">
+            <p>&copy; 2024 Sanskruti. All rights reserved.</p>
+        </div>
     </div>
 
 </body>
