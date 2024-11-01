@@ -15,7 +15,7 @@
 
         .container {
             display: flex;
-            flex-direction: column; /* Set the flex direction to column for container */
+            flex-direction: column; /* Set the flex direction to column */
             align-items: center; /* Center align items */
             background-color: white; /* Background color for the main box */
             padding: 20px;
@@ -66,22 +66,6 @@
         footer {
             font-size: 0.9em;
             color: #777;
-        }
-
-        /* Ensure horizontal layout on mobile devices */
-        @media (max-width: 768px) {
-            .content-container {
-                flex-direction: row; /* Keep columns horizontal on mobile */
-            }
-
-            .column {
-                margin: 0 10px; /* Maintain margin between columns */
-                width: calc(33.33% - 20px); /* Adjust width for 3 columns */
-            }
-
-            .container {
-                padding: 10px; /* Reduce padding for mobile */
-            }
         }
     </style>
 </head>
@@ -136,4 +120,5 @@
     </div>
 
 </body>
-</html>
+</html> 
+  
