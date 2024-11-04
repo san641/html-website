@@ -14,64 +14,57 @@
 
         .container {
             display: flex;
-            flex-direction: column; /* Overall layout as a column */
-            align-items: center; 
-            background-color: white; 
+            flex-direction: row; /* Main direction is row */
+            flex-wrap: wrap; /* Allow items to wrap if needed */
+            align-items: flex-start; /* Align items at the start */
+            background-color: white;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border: 2px solid #ccc; 
+            border: 2px solid #ccc;
         }
 
         .header, .footer {
-            width: 100%; 
-            padding: 10px; 
-            background-color: #f9f9f9; 
-            margin-bottom: 20px; 
-            border: 1px solid #ccc; 
-            border-radius: 5px; 
-            text-align: center; 
+            width: 100%;
+            padding: 10px;
+            background-color: #f9f9f9;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
         }
 
         h1 {
             color: #333;
-            margin: 0; 
+            margin: 0; /* Reset margin for header */
         }
 
         .content-container {
             display: flex; /* Use flexbox for the inner content */
-            justify-content: space-between; /* Space out the columns */
-            width: 100%; 
-            margin: 10px 0; 
+            justify-content: space-between; /* Space items evenly */
+            width: 100%; /* Full width */
+            margin: 10px 0; /* Space between content and header/footer */
+            flex-wrap: nowrap; /* Keep items in a single row */
+            overflow-x: auto; /* Enable horizontal scrolling if needed */
         }
 
         .column {
-            flex: 1; /* Equal width for columns */
-            margin: 0 10px; 
+            flex: 0 0 auto; /* Allow columns to size based on content */
+            margin: 5px; /* Space between columns */
             border: 1px solid #ccc; 
             border-radius: 5px; 
             padding: 10px; 
             background-color: #fff; 
-            display: flex; /* Enable flex for columns */
-            flex-direction: row; /* Arrange items in a row */
-            flex-wrap: wrap; /* Allow wrapping to the next line if needed */
-            justify-content: space-between; /* Space out items in the row */
+            min-width: 120px; /* Minimum width for columns */
+            box-sizing: border-box; /* Ensure padding is included in width */
         }
 
         h2 {
             color: #555;
-            width: 100%; /* Make header full width */
         }
 
         ol, ul {
-            padding-left: 0; /* Remove padding */
-            list-style-type: none; /* Remove bullets */
-            display: flex; /* Use flex for list items */
-            flex-wrap: wrap; /* Allow wrapping to next line */
-        }
-
-        ol li, ul li {
-            margin-right: 15px; /* Space between items */
+            padding-left: 20px;
         }
 
         footer {
