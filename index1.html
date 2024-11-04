@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,52 +14,64 @@
 
         .container {
             display: flex;
-            flex-direction: row; /* Set the flex direction to column */
-            align-items: center; /* Center align items */
-            background-color: white; /* Background color for the main box */
+            flex-direction: column; /* Overall layout as a column */
+            align-items: center; 
+            background-color: white; 
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border: 2px solid #ccc; /* Border for the entire container */
+            border: 2px solid #ccc; 
         }
 
         .header, .footer {
-            width: 100%; /* Make header and footer full width */
-            padding: 10px; /* Padding inside the box */
-            background-color: #f9f9f9; /* Light background for header and footer */
-            margin-bottom: 20px; /* Space below header */
-            border: 1px solid #ccc; /* Border for header and footer */
-            border-radius: 5px; /* Rounded corners */
-            text-align: center; /* Center text in header and footer */
+            width: 100%; 
+            padding: 10px; 
+            background-color: #f9f9f9; 
+            margin-bottom: 20px; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+            text-align: center; 
         }
 
         h1 {
             color: #333;
-            margin: 1; /* Reset margin for header */
+            margin: 0; 
         }
 
         .content-container {
             display: flex; /* Use flexbox for the inner content */
             justify-content: space-between; /* Space out the columns */
-            width: 100%; /* Full width */
-            margin: 10px 0; /* Space between content and header/footer */
+            width: 100%; 
+            margin: 10px 0; 
         }
 
         .column {
-            flex: 1; /* Equal flex grow for columns */
-            margin: 0 10px; /* Space between columns */
+            flex: 1; /* Equal width for columns */
+            margin: 0 10px; 
             border: 1px solid #ccc; 
             border-radius: 5px; 
             padding: 10px; 
             background-color: #fff; 
+            display: flex; /* Enable flex for columns */
+            flex-direction: row; /* Arrange items in a row */
+            flex-wrap: wrap; /* Allow wrapping to the next line if needed */
+            justify-content: space-between; /* Space out items in the row */
         }
 
         h2 {
             color: #555;
+            width: 100%; /* Make header full width */
         }
 
         ol, ul {
-            padding-left: 20px;
+            padding-left: 0; /* Remove padding */
+            list-style-type: none; /* Remove bullets */
+            display: flex; /* Use flex for list items */
+            flex-wrap: wrap; /* Allow wrapping to next line */
+        }
+
+        ol li, ul li {
+            margin-right: 15px; /* Space between items */
         }
 
         footer {
