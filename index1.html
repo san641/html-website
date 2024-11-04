@@ -4,29 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile - Desktop Layout</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Arial', sans-serif; /* Use a standard font */
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f4f4f4; /* Light background for the body */
         }
 
         .container {
             max-width: 800px;
             margin: 0 auto;
-            background-color: white;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: white; /* Container background */
         }
 
         .header, .footer {
-            text-align: center;
             padding: 15px;
-            background-color: #f9f9f9;
+            margin-bottom: 20px; /* Space between sections */
+            border: 1px solid #ccc; /* Light border for separation */
             border-radius: 5px;
+            text-align: center;
         }
 
         h1 {
@@ -34,40 +34,18 @@
             margin: 0;
         }
 
-        .nav {
+        .content-box {
             display: flex;
-            justify-content: center;
-            background-color: #007bff;
-            padding: 10px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
+            justify-content: space-between; /* Space items evenly */
+            gap: 20px; /* Space between columns */
         }
 
-        .nav a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 15px;
-            margin: 0 5px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .nav a:hover {
-            background-color: #0056b3;
-        }
-
-        .content-container {
-            display: none;
-            padding-top: 60px;
-        }
-
-        .content-container:target {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
+        .section {
+            flex: 1; /* Equal width for all sections */
+            padding: 10px;
+            border: 1px solid #ccc; /* Border for each column */
+            border-radius: 5px; /* Rounded corners for sections */
+            background-color: #fff; /* Background color for sections */
         }
 
         h2 {
@@ -80,110 +58,55 @@
             margin: 0;
         }
 
-        footer {
+        .footer {
             font-size: 0.9em;
             color: #777;
-        }
-
-        .menu {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .menu a {
-            background-color: #007bff;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 5px;
-            flex: 1 1 30%; /* Allow flexibility and a minimum width */
-            transition: background-color 0.3s;
-        }
-
-        .menu a:hover {
-            background-color: #0056b3;
-        }
-
-        @media (max-width: 600px) {
-            .nav {
-                flex-direction: column;
-            }
-
-            .nav a {
-                margin: 5px 0;
-            }
-
-            .container {
-                margin: 10px;
-            }
-
-            .menu a {
-                flex: 1 1 100%; /* Stack items on smaller screens */
-            }
         }
     </style>
 </head>
 <body>
-
-    <div class="nav">
-        <a href="#menu-content">Menu</a>
-    </div>
 
     <div class="container">
         <div class="header">
             <h1>Sanskruti</h1>
         </div>
 
-        <div id="menu-content" class="content-container">
-            <h2>Menu</h2>
-            <p>Select an option:</p>
-            <div class="menu">
-                <a href="#days-content">Days</a>
-                <a href="#content-content">Content</a>
-                <a href="#months-content">Months</a>
+        <div class="content-box">
+            <div class="section">
+                <h2>Days</h2>
+                <ol>
+                    <li>Monday</li>
+                    <li>Tuesday</li>
+                    <li>Wednesday</li>
+                    <li>Thursday</li>
+                    <li>Friday</li>
+                    <li>Saturday</li>
+                    <li>Sunday</li>
+                </ol>
             </div>
-        </div>
 
-        <div id="days-content" class="content-container">
-            <h2>Days</h2>
-            <a href="#menu-content">Back</a>
-            <ol>
-                <li>Monday</li>
-                <li>Tuesday</li>
-                <li>Wednesday</li>
-                <li>Thursday</li>
-                <li>Friday</li>
-                <li>Saturday</li>
-                <li>Sunday</li>
-            </ol>
-        </div>
+            <div class="section">
+                <h2>Content</h2>
+                <p>This is the content section where you can describe various topics or ideas. For example, you can discuss different programming languages, frameworks, or any subject matter of interest.</p>
+            </div>
 
-        <div id="content-content" class="content-container">
-            <h2>Content</h2>
-            <a href="#menu-content">Back</a>
-            <p>This is the content section where you can describe various topics or ideas. For example, you can discuss different programming languages, frameworks, or any subject matter of interest.</p>
-        </div>
-
-        <div id="months-content" class="content-container">
-            <h2>Months</h2>
-            <a href="#menu-content">Back</a>
-            <ul>
-                <li>January</li>
-                <li>February</li>
-                <li>March</li>
-                <li>April</li>
-                <li>May</li>
-                <li>June</li>
-                <li>July</li>
-                <li>August</li>
-                <li>September</li>
-                <li>October</li>
-                <li>November</li>
-                <li>December</li>
-            </ul>
+            <div class="section">
+                <h2>Months</h2>
+                <ul>
+                    <li>January</li>
+                    <li>February</li>
+                    <li>March</li>
+                    <li>April</li>
+                    <li>May</li>
+                    <li>June</li>
+                    <li>July</li>
+                    <li>August</li>
+                    <li>September</li>
+                    <li>October</li>
+                    <li>November</li>
+                    <li>December</li>
+                </ul>
+            </div>
         </div>
 
         <div class="footer">
@@ -193,4 +116,3 @@
 
 </body>
 </html>
-
