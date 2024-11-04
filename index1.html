@@ -4,110 +4,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile - Desktop Layout</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0;
             background-color: #f4f4f4;
         }
 
         .container {
-            display: flex;
-            flex-direction: column; 
-            align-items: center; 
-            background-color: white; 
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border: 2px solid #ccc; 
-            max-width: 800px; 
-            width: 100%; 
         }
 
         .header, .footer {
-            width: 100%; 
-            padding: 15px; 
-            background-color: #f9f9f9; 
-            margin-bottom: 20px; 
-            border: 1px solid #ccc; 
-            border-radius: 5px; 
-            text-align: center; 
+            text-align: center;
+            padding: 15px;
+            background-color: #f9f9f9;
+            margin: 0;
+            border-radius: 5px;
         }
 
         h1 {
             color: #333;
-            margin: 0; 
+            margin: 0;
         }
 
-        .menu {
-            margin-bottom: 20px;
-        }
-
-        .menu a {
-            padding: 15px 25px;
-            border: none;
-            border-radius: 5px;
+        .nav {
+            display: flex;
+            justify-content: center;
             background-color: #007bff;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav a {
             color: white;
             text-decoration: none;
-            display: inline-block;
+            padding: 10px 15px;
+            margin: 0 5px;
+            border-radius: 5px;
             transition: background-color 0.3s;
-            margin-right: 10px; /* Space between menu items */
         }
 
-        .menu a:hover {
+        .nav a:hover {
             background-color: #0056b3;
         }
 
         .content-container {
-            display: none; 
+            display: none; /* Hide content sections initially */
+            padding-top: 60px;
         }
 
         .content-container:target {
-            display: flex; 
-            flex-direction: column;
-            align-items: center;
+            display: flex; /* Show content when targeted */
+            flex-direction: row; /* Arrange items horizontally */
+            justify-content: space-around; /* Space items evenly */
+            align-items: flex-start; /* Align items at the start */
             width: 100%;
             margin: 10px 0; 
         }
 
-        .column {
-            border: 1px solid #ccc; 
-            border-radius: 5px; 
-            padding: 15px; 
-            background-color: #fff; 
-            width: 100%; 
-            max-width: 800px; 
-            margin-bottom: 10px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); 
+        .content-item {
+            flex: 1; /* Allow items to grow */
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            min-width: 200px; /* Minimum width for items */
         }
 
         h2 {
             color: #555;
-            margin: 0 0 10px 0; /* Add space below headings */
+            margin: 10px 0;
         }
 
         ol, ul {
             padding-left: 20px;
-            margin: 0; /* Remove default margin */
+            margin: 0;
         }
 
         footer {
             font-size: 0.9em;
             color: #777;
         }
+
+        @media (max-width: 600px) {
+            .nav {
+                flex-direction: column;
+            }
+
+            .nav a {
+                margin: 5px 0;
+            }
+
+            .container {
+                margin: 10px;
+            }
+
+            .content-container {
+                flex-direction: column; /* Stack items vertically on smaller screens */
+            }
+        }
     </style>
 </head>
 <body>
 
+    <div class="nav">
+        <a href="#menu-content">Menu</a>
+    </div>
+
     <div class="container">
         <div class="header">
             <h1>Sanskruti</h1>
-        </div>
-
-        <div class="menu">
-            <a href="#menu-content">Menu</a>
         </div>
 
         <div id="menu-content" class="content-container">
@@ -119,42 +138,47 @@
         </div>
 
         <div id="days-content" class="content-container">
-            <h2>Days</h2>
-            <a href="#menu-content">Back</a>
-            <ol>
-                <li>Monday</li>
-                <li>Tuesday</li>
-                <li>Wednesday</li>
-                <li>Thursday</li>
-                <li>Friday</li>
-                <li>Saturday</li>
-                <li>Sunday</li>
-            </ol>
+            <div class="content-item">
+                <h2>Days</h2>
+                <p>Here is a list of the days of the week:</p>
+                <ol>
+                    <li>Monday</li>
+                    <li>Tuesday</li>
+                    <li>Wednesday</li>
+                    <li>Thursday</li>
+                    <li>Friday</li>
+                    <li>Saturday</li>
+                    <li>Sunday</li>
+                </ol>
+            </div>
         </div>
 
         <div id="content-content" class="content-container">
-            <h2>Content</h2>
-            <a href="#menu-content">Back</a>
-            <p>This is the content section where you can describe various topics or ideas. For example, you can discuss different programming languages, frameworks, or any subject matter of interest.</p>
+            <div class="content-item">
+                <h2>Content</h2>
+                <p>This section can be used to describe various topics or ideas, such as programming languages, frameworks, or any other subject matter of interest.</p>
+            </div>
         </div>
 
         <div id="months-content" class="content-container">
-            <h2>Months</h2>
-            <a href="#menu-content">Back</a>
-            <ul>
-                <li>January</li>
-                <li>February</li>
-                <li>March</li>
-                <li>April</li>
-                <li>May</li>
-                <li>June</li>
-                <li>July</li>
-                <li>August</li>
-                <li>September</li>
-                <li>October</li>
-                <li>November</li>
-                <li>December</li>
-            </ul>
+            <div class="content-item">
+                <h2>Months</h2>
+                <p>Here is a list of the months of the year:</p>
+                <ul>
+                    <li>January</li>
+                    <li>February</li>
+                    <li>March</li>
+                    <li>April</li>
+                    <li>May</li>
+                    <li>June</li>
+                    <li>July</li>
+                    <li>August</li>
+                    <li>September</li>
+                    <li>October</li>
+                    <li>November</li>
+                    <li>December</li>
+                </ul>
+            </div>
         </div>
 
         <div class="footer">
