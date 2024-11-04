@@ -59,7 +59,7 @@
         }
 
         .content-container {
-            display: none; /* Hidden by default */
+            display: flex; /* Use flexbox to arrange content */
             flex-direction: column;
             align-items: center;
             width: 100%;
@@ -72,13 +72,14 @@
             padding: 10px; 
             background-color: #fff; 
             width: 100%; /* Full width for better mobile view */
+            max-width: 600px; /* Optional max width */
             margin-bottom: 10px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add shadow for better visibility */
-            transition: transform 0.2s; /* Animation for hover */
+            display: none; /* Hide all content sections by default */
         }
 
-        .column:hover {
-            transform: scale(1.02); /* Slight scale on hover */
+        .column.active {
+            display: block; /* Show only the active column */
         }
 
         h2 {
@@ -95,10 +96,6 @@
         }
 
         @media (max-width: 600px) {
-            .container {
-                padding: 10px; /* Reduce padding on smaller screens */
-            }
-
             .menu button {
                 width: 100%; /* Full-width buttons on mobile */
             }
@@ -116,7 +113,7 @@
             <button onclick="toggleMenu()">Menu</button>
         </div>
 
-        <div class="content-container" id="menu-content">
+        <div class="content-container" id="menu-content" style="display: flex;">
             <div class="column" onclick="showContent('days')">
                 <h2>1. Day</h2>
             </div>
@@ -128,7 +125,7 @@
             </div>
         </div>
 
-        <div class="column" id="days-content" style="display: none;">
+        <div class="column active" id="days-content">
             <button onclick="goBack()">Back</button>
             <h2>Days</h2>
             <ol>
@@ -142,13 +139,13 @@
             </ol>
         </div>
 
-        <div class="column" id="content-content" style="display: none;">
+        <div class="column" id="content-content">
             <button onclick="goBack()">Back</button>
             <h2>Content</h2>
             <p>This is the content section where you can describe various topics or ideas. For example, you can discuss different programming languages, frameworks, or any subject matter of interest.</p>
         </div>
 
-        <div class="column" id="months-content" style="display: none;">
+        <div class="column" id="months-content">
             <button onclick="goBack()">Back</button>
             <h2>Months</h2>
             <ul>
@@ -174,23 +171,26 @@
 
     <script>
         function toggleMenu() {
-            const contentContainer = document.getElementById('menu-content');
-            contentContainer.style.display = contentContainer.style.display === 'flex' ? 'none' : 'flex';
+            const menuContent = document.getElementById('menu-content');
+            menuContent.style.display = menuContent.style.display === 'none' ? 'flex' : 'none';
         }
 
         function showContent(type) {
             // Hide all content sections
             document.querySelectorAll('.column:not(#menu-content)').forEach(column => {
-                column.style.display = 'none';
+                column.classList.remove('active');
+                column.style.display = 'none'; // Hide all content sections
             });
 
             // Show the selected column
-            document.getElementById(`${type}-content`).style.display = 'block';
+            document.getElementById(`${type}-content`).classList.add('active');
+            document.getElementById(`${type}-content`).style.display = 'block'; // Show the selected content
         }
 
         function goBack() {
             // Hide all content sections
             document.querySelectorAll('.column').forEach(column => {
+                column.classList.remove('active');
                 column.style.display = 'none';
             });
 
