@@ -60,19 +60,19 @@
 
         .content-container {
             display: flex; 
-            justify-content: space-between; 
+            justify-content: center; 
             width: 100%; 
             margin: 10px 0; 
         }
 
         .column {
-            flex: 1; 
-            margin: 0 10px; 
             border: 1px solid #ccc; 
             border-radius: 5px; 
             padding: 10px; 
             background-color: #fff; 
             display: none; /* Hide all by default */
+            width: 100%; /* Full width for better mobile view */
+            max-width: 600px; /* Optional max width */
         }
 
         .column.active {
@@ -95,11 +95,6 @@
         @media (max-width: 600px) {
             .content-container {
                 flex-direction: column; 
-            }
-
-            .column {
-                margin: 10px 0; 
-                width: 100%; 
             }
         }
     </style>
@@ -128,8 +123,6 @@
                     <li>Saturday</li>
                     <li>Sunday</li>
                 </ol>
-                <h2>Content</h2>
-                <p>My name is Sanskruti. I completed my post-graduation degree in Data Science. My B.Tech is in Computer Science.</p>
             </div>
 
             <div class="column" id="months-content">
@@ -148,8 +141,6 @@
                     <li>November</li>
                     <li>December</li>
                 </ul>
-                <h2>Content</h2>
-                <p>My name is Sanskruti. I completed my post-graduation degree in Data Science. My B.Tech is in Computer Science.</p>
             </div>
         </div>
 
