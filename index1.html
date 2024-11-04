@@ -21,6 +21,8 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border: 2px solid #ccc; 
+            max-width: 600px; /* Max width for larger screens */
+            width: 100%; /* Full width for smaller screens */
         }
 
         .header, .footer {
@@ -39,19 +41,17 @@
         }
 
         .menu {
-            display: flex; 
-            justify-content: center;
             margin-bottom: 20px;
         }
 
         .menu button {
-            margin: 0 10px;
             padding: 10px 15px;
             cursor: pointer;
             border: none;
             border-radius: 5px;
             background-color: #007bff;
             color: white;
+            transition: background-color 0.3s;
         }
 
         .menu button:hover {
@@ -59,9 +59,10 @@
         }
 
         .content-container {
-            display: flex; 
-            justify-content: center; 
-            width: 100%; 
+            display: none; /* Hidden by default */
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
             margin: 10px 0; 
         }
 
@@ -70,13 +71,14 @@
             border-radius: 5px; 
             padding: 10px; 
             background-color: #fff; 
-            display: none; /* Hide all by default */
             width: 100%; /* Full width for better mobile view */
-            max-width: 600px; /* Optional max width */
+            margin-bottom: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add shadow for better visibility */
+            transition: transform 0.2s; /* Animation for hover */
         }
 
-        .column.active {
-            display: block; /* Show only the active column */
+        .column:hover {
+            transform: scale(1.02); /* Slight scale on hover */
         }
 
         h2 {
@@ -93,8 +95,12 @@
         }
 
         @media (max-width: 600px) {
-            .content-container {
-                flex-direction: column; 
+            .container {
+                padding: 10px; /* Reduce padding on smaller screens */
+            }
+
+            .menu button {
+                width: 100%; /* Full-width buttons on mobile */
             }
         }
     </style>
@@ -107,41 +113,58 @@
         </div>
 
         <div class="menu">
-            <button onclick="showContent('days')">Show Days</button>
-            <button onclick="showContent('months')">Show Months</button>
+            <button onclick="toggleMenu()">Menu</button>
         </div>
 
-        <div class="content-container">
-            <div class="column active" id="days-content">
-                <h2>Days</h2>
-                <ol>
-                    <li>Monday</li>
-                    <li>Tuesday</li>
-                    <li>Wednesday</li>
-                    <li>Thursday</li>
-                    <li>Friday</li>
-                    <li>Saturday</li>
-                    <li>Sunday</li>
-                </ol>
+        <div class="content-container" id="menu-content">
+            <div class="column" onclick="showContent('days')">
+                <h2>1. Day</h2>
             </div>
+            <div class="column" onclick="showContent('content')">
+                <h2>2. Content</h2>
+            </div>
+            <div class="column" onclick="showContent('months')">
+                <h2>3. Month</h2>
+            </div>
+        </div>
 
-            <div class="column" id="months-content">
-                <h2>Months</h2>
-                <ul>
-                    <li>January</li>
-                    <li>February</li>
-                    <li>March</li>
-                    <li>April</li>
-                    <li>May</li>
-                    <li>June</li>
-                    <li>July</li>
-                    <li>August</li>
-                    <li>September</li>
-                    <li>October</li>
-                    <li>November</li>
-                    <li>December</li>
-                </ul>
-            </div>
+        <div class="column" id="days-content" style="display: none;">
+            <button onclick="goBack()">Back</button>
+            <h2>Days</h2>
+            <ol>
+                <li>Monday</li>
+                <li>Tuesday</li>
+                <li>Wednesday</li>
+                <li>Thursday</li>
+                <li>Friday</li>
+                <li>Saturday</li>
+                <li>Sunday</li>
+            </ol>
+        </div>
+
+        <div class="column" id="content-content" style="display: none;">
+            <button onclick="goBack()">Back</button>
+            <h2>Content</h2>
+            <p>This is the content section where you can describe various topics or ideas. For example, you can discuss different programming languages, frameworks, or any subject matter of interest.</p>
+        </div>
+
+        <div class="column" id="months-content" style="display: none;">
+            <button onclick="goBack()">Back</button>
+            <h2>Months</h2>
+            <ul>
+                <li>January</li>
+                <li>February</li>
+                <li>March</li>
+                <li>April</li>
+                <li>May</li>
+                <li>June</li>
+                <li>July</li>
+                <li>August</li>
+                <li>September</li>
+                <li>October</li>
+                <li>November</li>
+                <li>December</li>
+            </ul>
         </div>
 
         <div class="footer">
@@ -150,13 +173,29 @@
     </div>
 
     <script>
+        function toggleMenu() {
+            const contentContainer = document.getElementById('menu-content');
+            contentContainer.style.display = contentContainer.style.display === 'flex' ? 'none' : 'flex';
+        }
+
         function showContent(type) {
-            // Hide all columns
-            document.querySelectorAll('.column').forEach(column => {
-                column.classList.remove('active');
+            // Hide all content sections
+            document.querySelectorAll('.column:not(#menu-content)').forEach(column => {
+                column.style.display = 'none';
             });
+
             // Show the selected column
-            document.getElementById(`${type}-content`).classList.add('active');
+            document.getElementById(`${type}-content`).style.display = 'block';
+        }
+
+        function goBack() {
+            // Hide all content sections
+            document.querySelectorAll('.column').forEach(column => {
+                column.style.display = 'none';
+            });
+
+            // Show the menu content
+            document.getElementById('menu-content').style.display = 'flex';
         }
     </script>
 </body>
