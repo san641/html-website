@@ -26,7 +26,6 @@
             text-align: center;
             padding: 15px;
             background-color: #f9f9f9;
-            margin: 0;
             border-radius: 5px;
         }
 
@@ -60,28 +59,15 @@
         }
 
         .content-container {
-            display: none; /* Hide content sections initially */
+            display: none;
             padding-top: 60px;
         }
 
         .content-container:target {
-            display: flex; /* Show content when targeted */
-            flex-direction: row; /* Arrange items horizontally */
-            justify-content: space-around; /* Space items evenly */
-            align-items: flex-start; /* Align items at the start */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             width: 100%;
-            margin: 10px 0; 
-        }
-
-        .content-item {
-            flex: 1; /* Allow items to grow */
-            margin: 10px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background: #fff;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-            min-width: 200px; /* Minimum width for items */
         }
 
         h2 {
@@ -99,6 +85,28 @@
             color: #777;
         }
 
+        .menu {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .menu a {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 5px;
+            flex: 1 1 30%; /* Allow flexibility and a minimum width */
+            transition: background-color 0.3s;
+        }
+
+        .menu a:hover {
+            background-color: #0056b3;
+        }
+
         @media (max-width: 600px) {
             .nav {
                 flex-direction: column;
@@ -112,8 +120,8 @@
                 margin: 10px;
             }
 
-            .content-container {
-                flex-direction: column; /* Stack items vertically on smaller screens */
+            .menu a {
+                flex: 1 1 100%; /* Stack items on smaller screens */
             }
         }
     </style>
@@ -132,53 +140,50 @@
         <div id="menu-content" class="content-container">
             <h2>Menu</h2>
             <p>Select an option:</p>
-            <a href="#days-content">1. Days</a>
-            <a href="#content-content">2. Content</a>
-            <a href="#months-content">3. Months</a>
+            <div class="menu">
+                <a href="#days-content">Days</a>
+                <a href="#content-content">Content</a>
+                <a href="#months-content">Months</a>
+            </div>
         </div>
 
         <div id="days-content" class="content-container">
-            <div class="content-item">
-                <h2>Days</h2>
-                <p>Here is a list of the days of the week:</p>
-                <ol>
-                    <li>Monday</li>
-                    <li>Tuesday</li>
-                    <li>Wednesday</li>
-                    <li>Thursday</li>
-                    <li>Friday</li>
-                    <li>Saturday</li>
-                    <li>Sunday</li>
-                </ol>
-            </div>
+            <h2>Days</h2>
+            <a href="#menu-content">Back</a>
+            <ol>
+                <li>Monday</li>
+                <li>Tuesday</li>
+                <li>Wednesday</li>
+                <li>Thursday</li>
+                <li>Friday</li>
+                <li>Saturday</li>
+                <li>Sunday</li>
+            </ol>
         </div>
 
         <div id="content-content" class="content-container">
-            <div class="content-item">
-                <h2>Content</h2>
-                <p>This section can be used to describe various topics or ideas, such as programming languages, frameworks, or any other subject matter of interest.</p>
-            </div>
+            <h2>Content</h2>
+            <a href="#menu-content">Back</a>
+            <p>This is the content section where you can describe various topics or ideas. For example, you can discuss different programming languages, frameworks, or any subject matter of interest.</p>
         </div>
 
         <div id="months-content" class="content-container">
-            <div class="content-item">
-                <h2>Months</h2>
-                <p>Here is a list of the months of the year:</p>
-                <ul>
-                    <li>January</li>
-                    <li>February</li>
-                    <li>March</li>
-                    <li>April</li>
-                    <li>May</li>
-                    <li>June</li>
-                    <li>July</li>
-                    <li>August</li>
-                    <li>September</li>
-                    <li>October</li>
-                    <li>November</li>
-                    <li>December</li>
-                </ul>
-            </div>
+            <h2>Months</h2>
+            <a href="#menu-content">Back</a>
+            <ul>
+                <li>January</li>
+                <li>February</li>
+                <li>March</li>
+                <li>April</li>
+                <li>May</li>
+                <li>June</li>
+                <li>July</li>
+                <li>August</li>
+                <li>September</li>
+                <li>October</li>
+                <li>November</li>
+                <li>December</li>
+            </ul>
         </div>
 
         <div class="footer">
