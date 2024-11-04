@@ -14,45 +14,69 @@
 
         .container {
             display: flex;
-            flex-direction: column; /* Set the flex direction to column */
-            align-items: center; /* Center align items */
-            align-content: space-between;
-            background-color: white; /* Background color for the main box */
+            flex-direction: column; 
+            align-items: center; 
+            background-color: white; 
             padding: 10px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border: 2px solid #ccc; /* Border for the entire container */
+            border: 2px solid #ccc; 
         }
 
         .header, .footer {
-            width: 100%; /* Make header and footer full width */
-            padding: 10px; /* Padding inside the box */
-            background-color: #f9f9f9; /* Light background for header and footer */
-            margin-bottom: 20px; /* Space below header */
-            border: 1px solid #ccc; /* Border for header and footer */
-            border-radius: 5px; /* Rounded corners */
-            text-align: center; /* Center text in header and footer */
+            width: 100%; 
+            padding: 10px; 
+            background-color: #f9f9f9; 
+            margin-bottom: 20px; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+            text-align: center; 
         }
 
         h1 {
             color: #333;
-            margin: 0; /* Reset margin for header */
+            margin: 0; 
+        }
+
+        .menu {
+            display: flex; 
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .menu button {
+            margin: 0 10px;
+            padding: 10px 15px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+        }
+
+        .menu button:hover {
+            background-color: #0056b3;
         }
 
         .content-container {
-            display: flex; /* Use flexbox for the inner content */
-            justify-content: space-between; /* Space out the columns */
-            width: 100%; /* Full width */
-            margin: 10px 0; /* Space between content and header/footer */
+            display: flex; 
+            justify-content: space-between; 
+            width: 100%; 
+            margin: 10px 0; 
         }
 
         .column {
-            flex: 1; /* Equal flex grow for columns */
-            margin: 0 10px; /* Space between columns */
+            flex: 1; 
+            margin: 0 10px; 
             border: 1px solid #ccc; 
             border-radius: 5px; 
             padding: 10px; 
             background-color: #fff; 
+            display: none; /* Hide all by default */
+        }
+
+        .column.active {
+            display: block; /* Show only the active column */
         }
 
         h2 {
@@ -68,15 +92,14 @@
             color: #777;
         }
 
-        /* Media query for mobile layout */
         @media (max-width: 600px) {
             .content-container {
-                flex-direction: column; /* Stack columns vertically on small screens */
+                flex-direction: column; 
             }
 
             .column {
-                margin: 10px 0; /* Add margin for vertical spacing */
-                width: 100%; /* Make columns full width */
+                margin: 10px 0; 
+                width: 100%; 
             }
         }
     </style>
@@ -87,9 +110,14 @@
         <div class="header">
             <h1>Sanskruti</h1>
         </div>
-        
+
+        <div class="menu">
+            <button onclick="showContent('days')">Show Days</button>
+            <button onclick="showContent('months')">Show Months</button>
+        </div>
+
         <div class="content-container">
-            <div class="column">
+            <div class="column active" id="days-content">
                 <h2>Days</h2>
                 <ol>
                     <li>Monday</li>
@@ -100,14 +128,11 @@
                     <li>Saturday</li>
                     <li>Sunday</li>
                 </ol>
-            </div>
-            
-            <div class="column">
                 <h2>Content</h2>
                 <p>My name is Sanskruti. I completed my post-graduation degree in Data Science. My B.Tech is in Computer Science.</p>
             </div>
-            
-            <div class="column">
+
+            <div class="column" id="months-content">
                 <h2>Months</h2>
                 <ul>
                     <li>January</li>
@@ -123,6 +148,8 @@
                     <li>November</li>
                     <li>December</li>
                 </ul>
+                <h2>Content</h2>
+                <p>My name is Sanskruti. I completed my post-graduation degree in Data Science. My B.Tech is in Computer Science.</p>
             </div>
         </div>
 
@@ -131,5 +158,15 @@
         </div>
     </div>
 
+    <script>
+        function showContent(type) {
+            // Hide all columns
+            document.querySelectorAll('.column').forEach(column => {
+                column.classList.remove('active');
+            });
+            // Show the selected column
+            document.getElementById(`${type}-content`).classList.add('active');
+        }
+    </script>
 </body>
 </html>
